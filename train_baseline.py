@@ -11,10 +11,10 @@ from models.cifar10_cnn import CIFAR10_CNN
 from training.utils import train_one_epoch, evaluate
 
 # configs
-DATASET = "mnist"    # choose "mnist" or "cifar10"
+DATASET = "cifar10"    # choose "mnist" or "cifar10"
 BATCH_SIZE = 64       # mini-batch size
-EPOCHS = 60           # number of training epochs
-LR = 0.0001            # learning rate for Adam optimizer
+EPOCHS = 300           # number of training epochs
+LR = 0.003            # learning rate for Adam optimizer
 
 # cpu/gpu setup
 #device = torch.device("cuda" if torch.cuda.is_available() else "cpu") #nvidia

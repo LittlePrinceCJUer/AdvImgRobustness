@@ -24,13 +24,20 @@ class CIFAR10_CNN(nn.Module):
             nn.ReLU(),
             nn.MaxPool2d(2)
         )
-        self.fc1 = nn.Linear(128 * 4 * 4, 64)
-        self.fc2 = nn.Linear(64, 10)
+        self.block4 = nn.Sequential(
+            nn.Conv2d(128, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(),
+            nn.MaxPool2d(2)
+        )
+        self.fc1 = nn.Linear(256 * 4 * 4, 128)
+        self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
         x = self.block1(x)
         x = self.block2(x)
         x = self.block3(x)
+        x = self.block4(x)
         x = torch.flatten(x, 1)
         x = self.fc1(x)
         x = F.relu(x)
