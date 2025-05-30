@@ -87,7 +87,7 @@ def evaluate_and_save(dataset_name, model, loader, attack_fn, attack_name, eps_p
 
 
 if __name__ == '__main__':
-    device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    device = torch.device('mps' if torch.backends.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu')
 
     # load baseline models
     mnist_model = MNIST_CNN().to(device)
