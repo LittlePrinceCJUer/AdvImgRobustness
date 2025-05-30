@@ -98,13 +98,20 @@ if __name__ == '__main__':
     loaders = {'mnist': mnist_loader, 'cifar10': cifar_loader}
     models  = {'mnist': mnist_model, 'cifar10': cifar_model}
 
-    attacks = [
-        ('fgsm',      fgsm_attack,    {'epsilon':0.001}),
-        ('pgd',       pgd_attack,     {'epsilon':0.001, 'alpha':0.005, 'iters':10}),
-        ('deepfool',  deepfool_attack, {'overshoot':0.02, 'max_iter':10}),
-        ('cw',        cw_l2_attack,   {'c':1e-2, 'kappa':0, 'max_iter':10, 'lr':0.01}),
-    ]
+    #epses = [0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009]
+    #epses = [0.003, 0.004, 0.005, 0.006, 0.007, 0.008, 0.009, 0.01]
+    #epses = [0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1]
+    coes = [0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009]
+    #coes = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09]
+    #coes = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    for coe in coes:
+        attacks = [
+            #('fgsm',      fgsm_attack,    {'epsilon':eps}),
+            #('pgd',       pgd_attack,     {'epsilon':eps, 'alpha':0.006, 'iters':10}),
+            #('deepfool',  deepfool_attack, {'overshoot':coe, 'max_iter':10}),
+            ('cw',        cw_l2_attack,   {'c':0.01, 'kappa':0, 'max_iter':10, 'lr':coe}),
+        ]
 
-    for name, fn, params in attacks:
-        for ds in ['mnist', 'cifar10']:
-            evaluate_and_save(ds, models[ds], loaders[ds], fn, name, params)
+        for name, fn, params in attacks:
+            for ds in ['mnist', 'cifar10']:
+                evaluate_and_save(ds, models[ds], loaders[ds], fn, name, params)
