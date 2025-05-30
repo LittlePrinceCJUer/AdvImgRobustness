@@ -1,4 +1,3 @@
-# src/training/utils.py
 import torch
 
 def train_one_epoch(model, device, train_loader, optimizer, criterion):

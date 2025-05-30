@@ -74,4 +74,4 @@ plt.ylabel('Accuracy')
 plt.show()
 
 # Save model
-torch.save(model.state_dict(), f"{DATASET}_cnn.pt")
+torch.save(model.state_dict(), f"{DATASET}_baseline.pt")
