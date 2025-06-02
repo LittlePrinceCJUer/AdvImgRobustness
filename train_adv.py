@@ -1,4 +1,5 @@
 import os
+import gc
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, TensorDataset
@@ -15,24 +16,37 @@ from attacks.cw import cw_l2_attack
 
 def main():
     # device
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device(
+        "mps"   if torch.backends.mps.is_available() else
+        "cuda"  if torch.cuda.is_available()    else
+        "cpu"
+    )
 
     # configs
-    DATASETS = ['mnist', 'cifar10']
+    DATASETS = ['cifar10']    # ,'mnist'
     ATTACK_FUNCS = {
-        'fgsm':     fgsm_attack,
-        'pgd':      pgd_attack,
-        'deepfool': deepfool_attack,
+        #'fgsm':     fgsm_attack,
+        #'pgd':      pgd_attack,
+        #'deepfool': deepfool_attack,
         'cw':       cw_l2_attack
     }
+    # CIFAR-10 60% attack parameters
     ATTACK_PARAMS = {
-        'fgsm':     {'epsilon': 0.3},
-        'pgd':      {'epsilon': 0.03, 'alpha': 0.005, 'iters': 20},
-        'deepfool': {'overshoot': 0.02, 'max_iter': 10},
-        'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 50, 'lr': 0.01}
+        'fgsm':     {'epsilon': 0.001},
+        'pgd':      {'epsilon': 0.001, 'alpha': 0.005, 'iters': 10},
+        'deepfool': {'overshoot': 0.2, 'max_iter': 10},
+        'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.00024}
     }
+    # MNIST 60% :
+    # ATTACK_PARAMS = {
+    #     'fgsm':     {'epsilon': 0.2},
+    #     'pgd':      {'epsilon': 0.25, 'alpha': 0.006, 'iters': 10},
+    #     'deepfool': {'overshoot': 1.8, 'max_iter': 10},
+    #     'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09}
+    # }
+
     BATCH_SIZE = 64
-    EPOCHS     = 40
+    EPOCHS     = 100
     LR         = 1e-3
 
     # ensure output directories exist
@@ -96,11 +110,11 @@ def main():
 
             train_loader = DataLoader(
                 train_set, batch_size=BATCH_SIZE,
-                shuffle=True,  num_workers=4
+                shuffle=True,  num_workers=0
             )
             test_loader  = DataLoader(
                 test_set,  batch_size=BATCH_SIZE,
-                shuffle=False, num_workers=4
+                shuffle=False, num_workers=0
             )
 
             model     = model_cls().to(device)
@@ -193,57 +207,6 @@ def main():
             with open(log_path, 'a') as f:
                 f.write(msg_orig + "\n")
 
-            # Final evaluation: extended test set
-            orig_imgs, orig_labels = [], []
-            for data, target in test_loader:
-                orig_imgs.append(data)
-                orig_labels.append(target)
-            orig_imgs   = torch.cat(orig_imgs,   dim=0)
-            orig_labels = torch.cat(orig_labels, dim=0)
-
-            adv_dir = os.path.join('data', 'adv', DATASET, ATTACK)
-            batched = sorted(
-                os.listdir(adv_dir),
-                key=lambda fn: int(fn.split('_')[1].split('.')[0])
-            )
-            adv_batches = [
-                torch.load(os.path.join(adv_dir, fn))
-                for fn in batched
-            ]
-            adv_imgs   = torch.cat(adv_batches, dim=0)
-            adv_labels = orig_labels.clone()
-
-            ext_imgs   = torch.cat([orig_imgs, adv_imgs],   dim=0)
-            ext_labels = torch.cat([orig_labels, adv_labels], dim=0)
-            ext_loader = DataLoader(
-                TensorDataset(ext_imgs, ext_labels),
-                batch_size=BATCH_SIZE, shuffle=False
-            )
-
-            y_true_ext, y_pred_ext = [], []
-            with torch.no_grad():
-                for data, target in ext_loader:
-                    data, target = data.to(device), target.to(device)
-                    preds = model(data).argmax(dim=1)
-                    y_true_ext += target.cpu().tolist()
-                    y_pred_ext += preds.cpu().tolist()
-
-            acc_ext  = accuracy_score(y_true_ext, y_pred_ext)
-            f1_ext   = f1_score(y_true_ext, y_pred_ext, average='macro')
-            rec_ext  = recall_score(y_true_ext, y_pred_ext, average='macro')
-            prec_ext = precision_score(
-                y_true_ext, y_pred_ext, average='macro', zero_division=0
-            )
-
-            msg_ext = (
-                f"Post-adversarial training on extended test set "
-                f"({ATTACK} on {DATASET}): "
-                f"Acc={acc_ext:.4f}, F1={f1_ext:.4f}, Rec={rec_ext:.4f}, Prec={prec_ext:.4f}"
-            )
-            print(msg_ext)
-            with open(log_path, 'a') as f:
-                f.write(msg_ext + "\n")
-
             # Save final model
             model_path = os.path.join(
                 'advResults', 'models', 'baseline',
@@ -251,6 +214,16 @@ def main():
             )
             torch.save(model.state_dict(), model_path)
             print(f"Completed adversarial training on {DATASET} with {ATTACK}\n")
+
+            # free up memory before next attack
+            del model
+            del optimizer
+            del train_loader
+            del test_loader
+            torch.cuda.empty_cache() if device.type == 'cuda' else None
+            torch.mps.empty_cache()   if device.type == 'mps'  else None
+            gc.collect()
+
 
 if __name__ == "__main__":
     from multiprocessing import freeze_support
