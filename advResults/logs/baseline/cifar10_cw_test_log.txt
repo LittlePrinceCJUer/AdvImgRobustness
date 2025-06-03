@@ -1,0 +1,4 @@
+Test Setting: Dataset=cifar10, Attack=cw, Attack Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.00024}, Batch Size=64, Device=mps
+Evaluation on original test set (cw on cifar10): Acc=0.8416, F1=0.8416, Rec=0.8416, Prec=0.8439
+Evaluation on adversarial-only test set (cw on cifar10): Acc=0.7468, F1=0.7478, Rec=0.7468, Prec=0.7523
+Evaluation on extended test set (cw on cifar10): Acc=0.7942, F1=0.7946, Rec=0.7942, Prec=0.7980

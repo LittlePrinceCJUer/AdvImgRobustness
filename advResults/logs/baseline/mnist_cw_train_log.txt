@@ -1,0 +1,23 @@
+Setting: Dataset=mnist, Attack=cw, Attack Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09}, Batch Size=64, Epochs=20, LR=0.001, Device=mps
+Epoch 1/20  Train Loss: 0.6492, Train Acc: 0.7161  |  Test Loss: 0.1406, Test Acc: 0.9598
+Epoch 2/20  Train Loss: 0.2979, Train Acc: 0.8610  |  Test Loss: 0.0908, Test Acc: 0.9732
+Epoch 3/20  Train Loss: 0.2383, Train Acc: 0.8904  |  Test Loss: 0.0768, Test Acc: 0.9754
+Epoch 4/20  Train Loss: 0.2064, Train Acc: 0.9054  |  Test Loss: 0.0666, Test Acc: 0.9793
+Epoch 5/20  Train Loss: 0.1867, Train Acc: 0.9149  |  Test Loss: 0.0624, Test Acc: 0.9794
+Epoch 6/20  Train Loss: 0.1717, Train Acc: 0.9216  |  Test Loss: 0.0609, Test Acc: 0.9822
+Epoch 7/20  Train Loss: 0.1599, Train Acc: 0.9276  |  Test Loss: 0.0597, Test Acc: 0.9815
+Epoch 8/20  Train Loss: 0.1504, Train Acc: 0.9321  |  Test Loss: 0.0491, Test Acc: 0.9825
+Epoch 9/20  Train Loss: 0.1399, Train Acc: 0.9369  |  Test Loss: 0.0510, Test Acc: 0.9836
+Epoch 10/20  Train Loss: 0.1316, Train Acc: 0.9407  |  Test Loss: 0.0502, Test Acc: 0.9833
+Epoch 11/20  Train Loss: 0.1231, Train Acc: 0.9447  |  Test Loss: 0.0443, Test Acc: 0.9834
+Epoch 12/20  Train Loss: 0.1165, Train Acc: 0.9479  |  Test Loss: 0.0435, Test Acc: 0.9864
+Epoch 13/20  Train Loss: 0.1119, Train Acc: 0.9496  |  Test Loss: 0.0491, Test Acc: 0.9839
+Epoch 14/20  Train Loss: 0.1067, Train Acc: 0.9521  |  Test Loss: 0.0478, Test Acc: 0.9835
+Epoch 15/20  Train Loss: 0.1041, Train Acc: 0.9528  |  Test Loss: 0.0472, Test Acc: 0.9846
+Epoch 16/20  Train Loss: 0.0998, Train Acc: 0.9550  |  Test Loss: 0.0514, Test Acc: 0.9823
+Epoch 17/20  Train Loss: 0.0952, Train Acc: 0.9569  |  Test Loss: 0.0469, Test Acc: 0.9850
+Epoch 18/20  Train Loss: 0.0922, Train Acc: 0.9585  |  Test Loss: 0.0462, Test Acc: 0.9848
+Epoch 19/20  Train Loss: 0.0890, Train Acc: 0.9604  |  Test Loss: 0.0508, Test Acc: 0.9831
+Epoch 20/20  Train Loss: 0.0862, Train Acc: 0.9613  |  Test Loss: 0.0436, Test Acc: 0.9850
+Post-adversarial training on original test set (cw on mnist): Acc=0.9850, F1=0.9848, Rec=0.9848, Prec=0.9849
+Post-adversarial training on extended test set (cw on mnist): Acc=0.9850, F1=0.9848, Rec=0.9848, Prec=0.9849

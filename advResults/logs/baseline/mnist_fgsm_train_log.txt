@@ -1,0 +1,23 @@
+Setting: Dataset=mnist, Attack=fgsm, Attack Params={'epsilon': 0.2}, Batch Size=64, Epochs=20, LR=0.001, Device=mps
+Epoch 1/20  Train Loss: 0.8567, Train Acc: 0.7038  |  Test Loss: 0.1600, Test Acc: 0.9545
+Epoch 2/20  Train Loss: 0.3831, Train Acc: 0.8719  |  Test Loss: 0.1023, Test Acc: 0.9681
+Epoch 3/20  Train Loss: 0.3029, Train Acc: 0.8993  |  Test Loss: 0.0763, Test Acc: 0.9744
+Epoch 4/20  Train Loss: 0.2551, Train Acc: 0.9149  |  Test Loss: 0.0677, Test Acc: 0.9779
+Epoch 5/20  Train Loss: 0.2114, Train Acc: 0.9299  |  Test Loss: 0.0664, Test Acc: 0.9775
+Epoch 6/20  Train Loss: 0.1874, Train Acc: 0.9377  |  Test Loss: 0.0589, Test Acc: 0.9798
+Epoch 7/20  Train Loss: 0.1740, Train Acc: 0.9423  |  Test Loss: 0.0600, Test Acc: 0.9792
+Epoch 8/20  Train Loss: 0.1672, Train Acc: 0.9446  |  Test Loss: 0.0513, Test Acc: 0.9818
+Epoch 9/20  Train Loss: 0.1587, Train Acc: 0.9471  |  Test Loss: 0.0520, Test Acc: 0.9809
+Epoch 10/20  Train Loss: 0.1540, Train Acc: 0.9484  |  Test Loss: 0.0465, Test Acc: 0.9833
+Epoch 11/20  Train Loss: 0.1487, Train Acc: 0.9499  |  Test Loss: 0.0493, Test Acc: 0.9831
+Epoch 12/20  Train Loss: 0.1434, Train Acc: 0.9522  |  Test Loss: 0.0453, Test Acc: 0.9839
+Epoch 13/20  Train Loss: 0.1393, Train Acc: 0.9536  |  Test Loss: 0.0458, Test Acc: 0.9838
+Epoch 14/20  Train Loss: 0.1323, Train Acc: 0.9555  |  Test Loss: 0.0420, Test Acc: 0.9862
+Epoch 15/20  Train Loss: 0.1288, Train Acc: 0.9564  |  Test Loss: 0.0449, Test Acc: 0.9851
+Epoch 16/20  Train Loss: 0.1262, Train Acc: 0.9578  |  Test Loss: 0.0408, Test Acc: 0.9859
+Epoch 17/20  Train Loss: 0.1203, Train Acc: 0.9590  |  Test Loss: 0.0422, Test Acc: 0.9859
+Epoch 18/20  Train Loss: 0.1138, Train Acc: 0.9613  |  Test Loss: 0.0438, Test Acc: 0.9841
+Epoch 19/20  Train Loss: 0.1136, Train Acc: 0.9618  |  Test Loss: 0.0413, Test Acc: 0.9853
+Epoch 20/20  Train Loss: 0.1097, Train Acc: 0.9631  |  Test Loss: 0.0396, Test Acc: 0.9870
+Post-adversarial training on original test set (fgsm on mnist): Acc=0.9870, F1=0.9869, Rec=0.9869, Prec=0.9870
+Post-adversarial training on extended test set (fgsm on mnist): Acc=0.5422, F1=0.6061, Rec=0.5437, Prec=0.8283

@@ -1,0 +1,23 @@
+Setting: Dataset=mnist, Attack=pgd, Attack Params={'epsilon': 0.25, 'alpha': 0.006, 'iters': 10}, Batch Size=64, Epochs=20, LR=0.001, Device=mps
+Epoch 1/20  Train Loss: 0.6094, Train Acc: 0.7967  |  Test Loss: 0.1238, Test Acc: 0.9616
+Epoch 2/20  Train Loss: 0.2035, Train Acc: 0.9337  |  Test Loss: 0.0708, Test Acc: 0.9766
+Epoch 3/20  Train Loss: 0.1630, Train Acc: 0.9471  |  Test Loss: 0.0687, Test Acc: 0.9797
+Epoch 4/20  Train Loss: 0.1433, Train Acc: 0.9537  |  Test Loss: 0.0595, Test Acc: 0.9815
+Epoch 5/20  Train Loss: 0.1296, Train Acc: 0.9581  |  Test Loss: 0.0478, Test Acc: 0.9848
+Epoch 6/20  Train Loss: 0.1190, Train Acc: 0.9610  |  Test Loss: 0.0402, Test Acc: 0.9880
+Epoch 7/20  Train Loss: 0.1110, Train Acc: 0.9637  |  Test Loss: 0.0468, Test Acc: 0.9859
+Epoch 8/20  Train Loss: 0.1051, Train Acc: 0.9659  |  Test Loss: 0.0395, Test Acc: 0.9883
+Epoch 9/20  Train Loss: 0.0995, Train Acc: 0.9676  |  Test Loss: 0.0368, Test Acc: 0.9879
+Epoch 10/20  Train Loss: 0.0952, Train Acc: 0.9685  |  Test Loss: 0.0342, Test Acc: 0.9880
+Epoch 11/20  Train Loss: 0.0922, Train Acc: 0.9697  |  Test Loss: 0.0376, Test Acc: 0.9867
+Epoch 12/20  Train Loss: 0.0887, Train Acc: 0.9702  |  Test Loss: 0.0345, Test Acc: 0.9891
+Epoch 13/20  Train Loss: 0.0849, Train Acc: 0.9718  |  Test Loss: 0.0391, Test Acc: 0.9883
+Epoch 14/20  Train Loss: 0.0817, Train Acc: 0.9724  |  Test Loss: 0.0336, Test Acc: 0.9897
+Epoch 15/20  Train Loss: 0.0800, Train Acc: 0.9733  |  Test Loss: 0.0342, Test Acc: 0.9882
+Epoch 16/20  Train Loss: 0.0773, Train Acc: 0.9743  |  Test Loss: 0.0319, Test Acc: 0.9886
+Epoch 17/20  Train Loss: 0.0741, Train Acc: 0.9751  |  Test Loss: 0.0348, Test Acc: 0.9889
+Epoch 18/20  Train Loss: 0.0717, Train Acc: 0.9759  |  Test Loss: 0.0355, Test Acc: 0.9884
+Epoch 19/20  Train Loss: 0.0706, Train Acc: 0.9761  |  Test Loss: 0.0335, Test Acc: 0.9888
+Epoch 20/20  Train Loss: 0.0689, Train Acc: 0.9769  |  Test Loss: 0.0353, Test Acc: 0.9881
+Post-adversarial training on original test set (pgd on mnist): Acc=0.9881, F1=0.9880, Rec=0.9879, Prec=0.9881
+Post-adversarial training on extended test set (pgd on mnist): Acc=0.7782, F1=0.7983, Rec=0.7814, Prec=0.8791

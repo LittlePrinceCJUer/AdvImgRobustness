@@ -1,0 +1,4 @@
+Test Setting: Dataset=cifar10, Attack=fgsm, Attack Params={'epsilon': 0.001}, Batch Size=64, Device=mps
+Evaluation on original test set (fgsm on cifar10): Acc=0.8402, F1=0.8403, Rec=0.8402, Prec=0.8418
+Evaluation on adversarial-only test set (fgsm on cifar10): Acc=0.7679, F1=0.7686, Rec=0.7679, Prec=0.7716
+Evaluation on extended test set (fgsm on cifar10): Acc=0.8041, F1=0.8044, Rec=0.8040, Prec=0.8066

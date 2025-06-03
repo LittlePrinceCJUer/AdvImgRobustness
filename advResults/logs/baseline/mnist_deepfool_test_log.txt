@@ -1,0 +1,4 @@
+Test Setting: Dataset=mnist, Attack=deepfool, Attack Params={'overshoot': 1.8, 'max_iter': 10}, Batch Size=64, Device=mps
+Evaluation on original test set (deepfool on mnist): Acc=0.9833, F1=0.9833, Rec=0.9831, Prec=0.9834
+Evaluation on adversarial-only test set (deepfool on mnist): Acc=0.8195, F1=0.8181, Rec=0.8174, Prec=0.8202
+Evaluation on extended test set (deepfool on mnist): Acc=0.9014, F1=0.9006, Rec=0.9003, Prec=0.9013

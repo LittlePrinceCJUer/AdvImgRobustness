@@ -1,0 +1,4 @@
+Test Setting: Dataset=cifar10, Attack=deepfool, Attack Params={'overshoot': 0.2, 'max_iter': 10}, Batch Size=64, Device=mps
+Evaluation on original test set (deepfool on cifar10): Acc=0.7859, F1=0.7840, Rec=0.7859, Prec=0.7856
+Evaluation on adversarial-only test set (deepfool on cifar10): Acc=0.4522, F1=0.4530, Rec=0.4522, Prec=0.4581
+Evaluation on extended test set (deepfool on cifar10): Acc=0.6190, F1=0.6187, Rec=0.6190, Prec=0.6215

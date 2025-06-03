@@ -1,0 +1,4 @@
+Test Setting: Dataset=mnist, Attack=fgsm, Attack Params={'epsilon': 0.2}, Batch Size=64, Device=mps
+Evaluation on original test set (fgsm on mnist): Acc=0.9870, F1=0.9869, Rec=0.9869, Prec=0.9870
+Evaluation on adversarial-only test set (fgsm on mnist): Acc=0.9454, F1=0.9449, Rec=0.9450, Prec=0.9449
+Evaluation on extended test set (fgsm on mnist): Acc=0.9662, F1=0.9659, Rec=0.9659, Prec=0.9659

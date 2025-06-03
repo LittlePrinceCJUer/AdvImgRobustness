@@ -1,0 +1,4 @@
+Test Setting: Dataset=cifar10, Attack=pgd, Attack Params={'epsilon': 0.001, 'alpha': 0.005, 'iters': 10}, Batch Size=64, Device=mps
+Evaluation on original test set (pgd on cifar10): Acc=0.8197, F1=0.8222, Rec=0.8197, Prec=0.8284
+Evaluation on adversarial-only test set (pgd on cifar10): Acc=0.7409, F1=0.7449, Rec=0.7409, Prec=0.7547
+Evaluation on extended test set (pgd on cifar10): Acc=0.7803, F1=0.7835, Rec=0.7803, Prec=0.7915

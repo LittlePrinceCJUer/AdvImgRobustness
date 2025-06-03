@@ -1,0 +1,4 @@
+Test Setting: Dataset=mnist, Attack=pgd, Attack Params={'epsilon': 0.25, 'alpha': 0.006, 'iters': 10}, Batch Size=64, Device=mps
+Evaluation on original test set (pgd on mnist): Acc=0.9881, F1=0.9880, Rec=0.9879, Prec=0.9881
+Evaluation on adversarial-only test set (pgd on mnist): Acc=0.9571, F1=0.9566, Rec=0.9564, Prec=0.9574
+Evaluation on extended test set (pgd on mnist): Acc=0.9726, F1=0.9723, Rec=0.9722, Prec=0.9727

@@ -5,8 +5,8 @@ from torchvision import datasets
 import matplotlib.pyplot as plt
 
 from preprocessing.normalize import get_mnist_transform, get_cifar10_transform
-from models.mnist_cnn import MNIST_CNN
-from models.cifar10_cnn import CIFAR10_CNN
+from models.mnist_mlp import MNIST_MLP
+from models.cifar10_mlp import CIFAR10_MLP
 from training.utils import train_one_epoch, evaluate
 
 # configs
@@ -16,26 +16,28 @@ EPOCHS = 300           # number of training epochs
 LR = 0.002            # learning rate for Adam optimizer
 
 # cpu/gpu setup
-device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device(
+    "mps" if torch.backends.mps.is_available() else "cpu"
+)
 
 # data directory
 os.makedirs("data", exist_ok=True)
 
-# load dataset and transform (EDA)
+# load dataset and basic transform
 if DATASET == "mnist":
     transform = get_mnist_transform()
     train_set = datasets.MNIST("data", train=True, download=True, transform=transform)
     test_set = datasets.MNIST("data", train=False, download=True, transform=transform)
-    model = MNIST_CNN().to(device)
+    model = MNIST_MLP().to(device)
 else:
-    transform = get_cifar10_transform()
+    transform = get_cifar10_transform()  # Resize(64×64) + ToTensor
     train_set = datasets.CIFAR10("data", train=True, download=True, transform=transform)
     test_set = datasets.CIFAR10("data", train=False, download=True, transform=transform)
-    model = CIFAR10_CNN().to(device)
+    model = CIFAR10_MLP().to(device)
 
 # dataLoaders
-train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True)
-test_loader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=False)
+train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
+test_loader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
 
 # loss and optimizer
 criterion = torch.nn.CrossEntropyLoss()
@@ -58,7 +60,7 @@ for epoch in range(1, EPOCHS + 1):
 # Plot training loss over epochs
 plt.figure()
 plt.plot(range(1, EPOCHS + 1), train_losses)
-plt.title('Training Loss over Epochs')
+plt.title('MLP Training Loss over Epochs')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.show()
@@ -66,10 +68,10 @@ plt.show()
 # Plot test accuracy over epochs
 plt.figure()
 plt.plot(range(1, EPOCHS + 1), test_accuracies)
-plt.title('Test Accuracy over Epochs')
+plt.title('MLP Test Accuracy over Epochs')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.show()
 
 # Save model
-torch.save(model.state_dict(), f"{DATASET}_baseline.pt")
+torch.save(model.state_dict(), f"{DATASET}_mlp.pt")

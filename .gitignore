@@ -19,5 +19,4 @@ __pycache__/
 
 # dataset
 /data/
-/results/
-/advResults/
+/advResults/models/
