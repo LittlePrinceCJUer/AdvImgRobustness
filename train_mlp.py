@@ -57,13 +57,17 @@ for epoch in range(1, EPOCHS + 1):
           f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f} | "
           f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
 
+# make dir for saving figures
+os.makedirs("figs", exist_ok=True)
+
 # Plot training loss over epochs
 plt.figure()
 plt.plot(range(1, EPOCHS + 1), train_losses)
 plt.title('MLP Training Loss over Epochs')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
-plt.show()
+plt.savefig(f"figs/{DATASET}_mlp_train_loss.png")  # Save instead of show
+plt.close() # free memory
 
 # Plot test accuracy over epochs
 plt.figure()
@@ -71,7 +75,8 @@ plt.plot(range(1, EPOCHS + 1), test_accuracies)
 plt.title('MLP Test Accuracy over Epochs')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
-plt.show()
+plt.savefig(f"figs/{DATASET}_mlp_testAcc.png")  # Save instead of show
+plt.close() # free memory
 
 # Save model
 torch.save(model.state_dict(), f"{DATASET}_mlp.pt")
