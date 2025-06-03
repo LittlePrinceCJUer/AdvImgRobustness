@@ -110,11 +110,11 @@ def main():
 
             train_loader = DataLoader(
                 train_set, batch_size=BATCH_SIZE,
-                shuffle=True,  num_workers=4
+                shuffle=True,  num_workers=0
             )
             test_loader  = DataLoader(
                 test_set,  batch_size=BATCH_SIZE,
-                shuffle=False, num_workers=4
+                shuffle=False, num_workers=0
             )
 
             model     = model_cls().to(device)

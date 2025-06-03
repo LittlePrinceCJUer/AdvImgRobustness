@@ -93,7 +93,7 @@ def main():
 
             test_loader = DataLoader(
                 test_set, batch_size=BATCH_SIZE,
-                shuffle=False, num_workers=4
+                shuffle=False, num_workers=0
             )
 
             # load adversarially trained model
