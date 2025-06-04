@@ -23,27 +23,27 @@ def main():
     )
 
     # configs
-    DATASETS = ['cifar10']    # or add 'mnist'
+    DATASETS = ['mnist']    # or add 'cifar10'
     ATTACK_FUNCS = {
         'fgsm':     fgsm_attack,
         'pgd':      pgd_attack,
         'deepfool': deepfool_attack,
         'cw':       cw_l2_attack
     }
-    # CIFAR-10 adversarial-training attack parameters
-    ATTACK_PARAMS = {
-        'fgsm':     {'epsilon': 0.001},
-        'pgd':      {'epsilon': 0.001, 'alpha': 0.005, 'iters': 10},
-        'deepfool': {'overshoot': 0.2, 'max_iter': 10},
-        'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.00024}
-    }
-    # For MNIST, you could uncomment & adjust as needed:
+    # # CIFAR-10 adversarial-training attack parameters
     # ATTACK_PARAMS = {
-    #     'fgsm':     {'epsilon': 0.2},
-    #     'pgd':      {'epsilon': 0.25, 'alpha': 0.006, 'iters': 10},
-    #     'deepfool': {'overshoot': 1.8, 'max_iter': 10},
-    #     'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09}
+    #     'fgsm':     {'epsilon': 0.001},
+    #     'pgd':      {'epsilon': 0.001, 'alpha': 0.005, 'iters': 10},
+    #     'deepfool': {'overshoot': 0.2, 'max_iter': 10},
+    #     'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.00024}
     # }
+    # For MNIST, you could uncomment & adjust as needed:
+    ATTACK_PARAMS = {
+        'fgsm':     {'epsilon': 0.2},
+        'pgd':      {'epsilon': 0.25, 'alpha': 0.006, 'iters': 10},
+        'deepfool': {'overshoot': 1.8, 'max_iter': 10},
+        'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09}
+    }
 
     BATCH_SIZE = 64
     EPOCHS     = 100
