@@ -1,0 +1,1 @@
+Test Setting: Dataset=mnist, Attack=deepfool, Attack Params={'overshoot': 1.8, 'max_iter': 10}, Batch Size=64, Device=mps

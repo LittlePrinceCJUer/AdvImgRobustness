@@ -1,0 +1,1 @@
+Test Setting: Dataset=cifar10, Attack=cw, Attack Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.00024}, Batch Size=64, Device=mps

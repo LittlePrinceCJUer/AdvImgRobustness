@@ -1,0 +1,1 @@
+Test Setting: Dataset=cifar10, Attack=pgd, Attack Params={'epsilon': 0.001, 'alpha': 0.005, 'iters': 10}, Batch Size=64, Device=mps

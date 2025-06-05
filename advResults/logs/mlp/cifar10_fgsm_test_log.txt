@@ -1,0 +1,1 @@
+Test Setting: Dataset=cifar10, Attack=fgsm, Attack Params={'epsilon': 0.001}, Batch Size=64, Device=mps

@@ -1,0 +1,1 @@
+Test Setting: Dataset=mnist, Attack=fgsm, Attack Params={'epsilon': 0.2}, Batch Size=64, Device=mps

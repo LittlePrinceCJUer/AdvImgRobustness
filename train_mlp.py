@@ -10,10 +10,10 @@ from models.cifar10_mlp import CIFAR10_MLP
 from training.utils import train_one_epoch, evaluate
 
 # configs
-DATASET = "mnist"    # choose "mnist" or "cifar10"
+DATASET = "cifar10"    # choose "mnist" or "cifar10"
 BATCH_SIZE = 64       # mini-batch size
-EPOCHS = 20           # number of training epochs
-LR = 0.01            # learning rate for Adam optimizer
+EPOCHS = 100           # number of training epochs
+LR = 0.001            # learning rate for Adam optimizer
 
 # cpu/gpu setup
 device = torch.device(

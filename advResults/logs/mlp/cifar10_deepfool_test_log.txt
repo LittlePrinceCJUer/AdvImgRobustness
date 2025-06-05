@@ -1,0 +1,1 @@
+Test Setting: Dataset=cifar10, Attack=deepfool, Attack Params={'overshoot': 0.2, 'max_iter': 10}, Batch Size=64, Device=mps

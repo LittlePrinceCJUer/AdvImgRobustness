@@ -1,0 +1,1 @@
+Test Setting: Dataset=mnist, Attack=cw, Attack Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09}, Batch Size=64, Device=mps
