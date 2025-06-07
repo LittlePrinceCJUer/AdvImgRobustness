@@ -43,3 +43,5 @@ cifar10 cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.0006} | Acc=
 cifar10 cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.0007} | Acc=0.2318, F1=0.2382, Rec=0.2318, Prec=0.2534
 cifar10 cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.0008} | Acc=0.1870, F1=0.1931, Rec=0.1870, Prec=0.2081
 cifar10 cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.0009} | Acc=0.1476, F1=0.1528, Rec=0.1476, Prec=0.1668
+cifar10 cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.0002} | Acc=0.6352, F1=0.6365, Rec=0.6352, Prec=0.6426
+cifar10 cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.0002} | Acc=0.6352, F1=0.6365, Rec=0.6352, Prec=0.6426

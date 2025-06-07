@@ -1,0 +1,1 @@
+cifar10 deepfool | Params={'overshoot': 0.2, 'max_iter': 10} | Acc=0.6912, F1=0.6894, Rec=0.6912, Prec=0.6922

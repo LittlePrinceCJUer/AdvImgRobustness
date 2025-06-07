@@ -1,0 +1,3 @@
+mnist pgd | Params={'epsilon': 0.001, 'alpha': 0.005, 'iters': 10} | Acc=0.9871, F1=0.9869, Rec=0.9870, Prec=0.9871
+mnist pgd | Params={'epsilon': 0.2, 'alpha': 0.006, 'iters': 10} | Acc=0.8070, F1=0.8010, Rec=0.8044, Prec=0.8157
+mnist pgd | Params={'epsilon': 0.2, 'alpha': 0.006, 'iters': 10} | Acc=0.8069, F1=0.8009, Rec=0.8044, Prec=0.8154

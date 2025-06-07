@@ -1,0 +1,3 @@
+mnist fgsm | Params={'epsilon': 0.001} | Acc=0.9871, F1=0.9869, Rec=0.9870, Prec=0.9871
+mnist fgsm | Params={'epsilon': 0.2} | Acc=0.2918, F1=0.2735, Rec=0.2856, Prec=0.3020
+mnist fgsm | Params={'epsilon': 0.2} | Acc=0.2918, F1=0.2735, Rec=0.2856, Prec=0.3020

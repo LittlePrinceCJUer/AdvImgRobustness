@@ -1,0 +1,1 @@
+cifar10 pgd | Params={'epsilon': 0.001, 'alpha': 0.005, 'iters': 10} | Acc=0.7794, F1=0.7779, Rec=0.7794, Prec=0.7794

@@ -37,3 +37,5 @@ cifar10 pgd | Params={'epsilon': 0.6, 'alpha': 0.006, 'iters': 10} | Acc=0.0000,
 cifar10 pgd | Params={'epsilon': 0.7, 'alpha': 0.006, 'iters': 10} | Acc=0.0000, F1=0.0000, Rec=0.0000, Prec=0.0000
 cifar10 pgd | Params={'epsilon': 0.8, 'alpha': 0.006, 'iters': 10} | Acc=0.0000, F1=0.0000, Rec=0.0000, Prec=0.0000
 cifar10 pgd | Params={'epsilon': 0.9, 'alpha': 0.006, 'iters': 10} | Acc=0.0000, F1=0.0000, Rec=0.0000, Prec=0.0000
+cifar10 pgd | Params={'epsilon': 0.001, 'alpha': 0.005, 'iters': 10} | Acc=0.5901, F1=0.5906, Rec=0.5901, Prec=0.5964
+cifar10 pgd | Params={'epsilon': 0.001, 'alpha': 0.005, 'iters': 10} | Acc=0.5900, F1=0.5905, Rec=0.5900, Prec=0.5963

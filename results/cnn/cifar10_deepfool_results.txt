@@ -29,3 +29,5 @@ cifar10 deepfool | Params={'overshoot': 6, 'max_iter': 10} | Acc=0.0993, F1=0.09
 cifar10 deepfool | Params={'overshoot': 7, 'max_iter': 10} | Acc=0.0993, F1=0.0984, Rec=0.0993, Prec=0.1031
 cifar10 deepfool | Params={'overshoot': 8, 'max_iter': 10} | Acc=0.0997, F1=0.0988, Rec=0.0997, Prec=0.1035
 cifar10 deepfool | Params={'overshoot': 9, 'max_iter': 10} | Acc=0.1004, F1=0.0996, Rec=0.1004, Prec=0.1044
+cifar10 deepfool | Params={'overshoot': 0.2, 'max_iter': 10} | Acc=0.6007, F1=0.6031, Rec=0.6007, Prec=0.6100
+cifar10 deepfool | Params={'overshoot': 0.2, 'max_iter': 10} | Acc=0.6007, F1=0.6031, Rec=0.6007, Prec=0.6100

@@ -1,0 +1,1 @@
+mnist fgsm | Params={'epsilon': 0.2} | Acc=0.5783, F1=0.5887, Rec=0.5830, Prec=0.6475

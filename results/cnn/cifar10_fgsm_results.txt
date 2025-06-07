@@ -37,3 +37,5 @@ cifar10 fgsm | Params={'epsilon': 0.6} | Acc=0.0953, F1=0.0375, Rec=0.0953, Prec
 cifar10 fgsm | Params={'epsilon': 0.7} | Acc=0.0967, F1=0.0360, Rec=0.0967, Prec=0.0415
 cifar10 fgsm | Params={'epsilon': 0.8} | Acc=0.0984, F1=0.0372, Rec=0.0984, Prec=0.0455
 cifar10 fgsm | Params={'epsilon': 0.9} | Acc=0.0996, F1=0.0379, Rec=0.0996, Prec=0.0511
+cifar10 fgsm | Params={'epsilon': 0.001} | Acc=0.5948, F1=0.5961, Rec=0.5948, Prec=0.6029
+cifar10 fgsm | Params={'epsilon': 0.001} | Acc=0.5948, F1=0.5961, Rec=0.5948, Prec=0.6029

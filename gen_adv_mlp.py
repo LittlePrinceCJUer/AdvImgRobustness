@@ -102,25 +102,23 @@ if __name__ == '__main__':
     loaders = {'mnist': mnist_loader, 'cifar10': cifar_loader}
     models  = {'mnist': mnist_model, 'cifar10': cifar_model}
 
-    # define attacks & parameter sweeps (example epsilons / overshoots)
-    epses = [0.001, 0.002, 0.003, 0.004, 0.005]
-    coes  = [0.001, 0.002, 0.003, 0.004, 0.005]
-    overshoots = [0.05, 0.1, 0.15]
-
-    for eps in epses:
+    overshoots = [1]
+    for eps in overshoots:
         attacks = [
-            ('fgsm', fgsm_attack, {'epsilon': eps}),
-            ('pgd',  pgd_attack,  {'epsilon': eps, 'alpha': eps / 5, 'iters': 10}),
-            #('cw',   cw_l2_attack, {'c': co, 'kappa':0, 'max_iter':10, 'lr':0.001}) for co in coes
+            #('fgsm',      fgsm_attack,    {'epsilon':0.2}),
+            ('pgd',       pgd_attack,     {'epsilon':0.2, 'alpha':0.006, 'iters':10}),
+            #('deepfool',  deepfool_attack, {'overshoot':2, 'max_iter':10}),
+            #('cw',        cw_l2_attack,   {'c':0.01, 'kappa':0, 'max_iter':10, 'lr':0.09}),
         ]
-        for name, fn, params in attacks:
-            for ds in ['mnist', 'cifar10']:
-                evaluate_and_save_mlp(ds, models[ds], loaders[ds], fn, name, params)
 
-    for over in overshoots:
-        attacks = [
-            ('deepfool', deepfool_attack, {'overshoot': over, 'max_iter': 10})
-        ]
+        # MNIST 60% :
+        # ATTACK_PARAMS = {
+        #     'fgsm':     {'epsilon': 0.2},
+        #     'pgd':      {'epsilon': 0.25, 'alpha': 0.006, 'iters': 10},
+        #     'deepfool': {'overshoot': 1.8, 'max_iter': 10},
+        #     'cw':       {'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09}
+        # }
+
         for name, fn, params in attacks:
-            for ds in ['mnist', 'cifar10']:
+            for ds in ['mnist']:     #, 'cifar10'
                 evaluate_and_save_mlp(ds, models[ds], loaders[ds], fn, name, params)

@@ -1,0 +1,2 @@
+mnist deepfool | Params={'overshoot': 1.8, 'max_iter': 10} | Acc=0.1180, F1=0.1163, Rec=0.1133, Prec=0.1493
+mnist deepfool | Params={'overshoot': 2, 'max_iter': 10} | Acc=0.0966, F1=0.0958, Rec=0.0929, Prec=0.1263

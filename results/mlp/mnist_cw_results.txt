@@ -1,0 +1,1 @@
+mnist cw | Params={'c': 0.01, 'kappa': 0, 'max_iter': 10, 'lr': 0.09} | Acc=0.7003, F1=0.7053, Rec=0.6974, Prec=0.7263

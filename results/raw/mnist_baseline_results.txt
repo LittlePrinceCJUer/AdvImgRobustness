@@ -1,0 +1,1 @@
+mnist baseline | Acc=0.9899, F1=0.9898, Rec=0.9899, Prec=0.9899

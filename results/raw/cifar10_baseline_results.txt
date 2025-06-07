@@ -1,0 +1,1 @@
+cifar10 baseline | Acc=0.8251, F1=0.8261, Rec=0.8251, Prec=0.8291
