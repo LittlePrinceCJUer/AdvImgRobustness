@@ -11,7 +11,7 @@ class MNIST_ResNet(nn.Module):
     def __init__(self):
         super(MNIST_ResNet, self).__init__()
         # Load a ResNet-18 skeleton
-        self.resnet = models.resnet18(pretrained=False)
+        self.resnet = models.resnet18(weights=None)  # No pretrained weights
         # Replace the first conv layer to accept 1 channel instead of 3
         self.resnet.conv1 = nn.Conv2d(
             1,                                     # in_channels = 1 for MNIST
